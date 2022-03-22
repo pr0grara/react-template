@@ -1,0 +1,1633 @@
+{
+    "version": "1.0.5",
+    "release": "Mon Mar 21 2022 12:50:44 GMT-0700 (Pacific Daylight Time)",
+    "name": "STUDENT_SURVEY",
+    "manifest": {
+        "sections": {
+            "sectionIds": [
+                "sy9SkVGXW9f1",
+                "vvL1R3G3rcP4",
+                "BxOl8NHPgUiS",
+                "uHGKjnUglGfO",
+                "BxCnIp3SVvWq",
+                "QE3vKB2absKV",
+                "pZoxfwQcWFC9"
+            ],
+            "sectionNames": [
+                "General",
+                "Data Preparation",
+                "Modeling",
+                "Career Trajectory",
+                "ML Aptitude",
+                "Business Value",
+                "General"
+            ],
+            "length": 7,
+            "questionCounts": [
+                11,
+                6,
+                9,
+                6,
+                5,
+                4,
+                4
+            ],
+            "sy9SkVGXW9f1": 11,
+            "vvL1R3G3rcP4": 6,
+            "BxOl8NHPgUiS": 9,
+            "uHGKjnUglGfO": 6,
+            "BxCnIp3SVvWq": 5,
+            "QE3vKB2absKV": 4,
+            "pZoxfwQcWFC9": 4
+        }
+    },
+    "prompts": {
+        "welcome": {
+            "type": "staggered",
+            "prompt": "Welcome to the Loxz Digital Survey!",
+            "prompts": [
+                {
+                    "prompt": "This innovative machine learning diagnostic assessment is a premier application to prepare students at UC Irvine for a career in Machine Learning. The survey encapsulates six vital categories that are part of the machine learning lifecycle including ML Aptitude, Modeling, Data Prep and Career Trajectory.  Upon submission, you will receive in realtime, an overall MLR score and innovative sub-scores along with access to our dashboard.",
+                    "delay": 100
+                },
+                {
+                    "prompt": "Whether you are a seasoned leader showcasing your ML Data Preparation strengths, an innovator seeking a steep career trajectory or an ML enthusiast who wants to take their passion to the next level, this diagnostic assessment will help you focus. Thanks for being part of the UCI Data Science and ML Ecosystem! Let’s begin your journey.",
+                    "delay": 3200
+                }
+            ],
+            "button": "I'm ready",
+            "goesToPrompt": "moreInfo"
+        },
+        "moreInfo": {
+            "type": "standard",
+            "prompt": "To optimize your assessment, we need some information about you",
+            "button": "Let's go",
+            "goesTo": "sy9SkVGXW9f1"
+        },
+        "existingUser": {
+            "type": "input",
+            "prompt": "It looks like you have an account associated with: ###EMAIL/nPlease enter your password",
+            "button": "login",
+            "dataUse": "EMAIL",
+            "goesTo": "LOGIN"
+        },
+        "newUser": {
+            "type": "input",
+            "prompt": "Lets take this opportunity to save your results!/nPlease enter a password to associate with ###EMAIL",
+            "button": "create new user",
+            "dataUse": "EMAIL",
+            "goesTo": "SIGNUP"
+        },
+        "submit": {
+            "type": "standard",
+            "prompt": "Awesome, great job ###NAME! Let's get you your report!",
+            "dataUse": "NAME",
+            "button": "submit",
+            "submit": true,
+            "goesToPrompt": "existingUser###newUser"
+        },
+        "achievements": {
+            "type": "standard",
+            "prompt": "Let's discuss your achievements in ML so far",
+            "dataUse": null,
+            "button": "Ok",
+            "goesTo": "QrH3MPbcM4jJ"
+        },
+        "assessment": {
+            "type": "standard",
+            "prompt": "Now we are going to ask a couple questions which will help us better understand your aptitude in ML",
+            "dataUse": null,
+            "button": "Let's go!",
+            "goesTo": "BxCnIp3SVvWq"
+        },
+        "finishUp": {
+            "type": "standard",
+            "prompt": "Thanks for that ###NAME, now let's finish up with the last of your self assessment questions",
+            "dataUse": "NAME",
+            "button": "onwards",
+            "goesTo": "QE3vKB2absKV"
+        }
+    },
+    "questions": {
+        "sy9SkVGXW9f1": {
+            "question": "What is your first name?",
+            "id": "sy9SkVGXW9f1",
+            "type": "open",
+            "dataCapture": "NAME",
+            "error": {
+                "test": "string",
+                "msg": "your input is not correct"
+            },
+            "number": 1,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "",
+                    "answerId": "7a8LfLIMdEy6"
+                }
+            ],
+            "goesTo": "ktGqfhk10tZQ"
+        },
+        "ktGqfhk10tZQ": {
+            "question": "What is your current student designation?",
+            "id": "ktGqfhk10tZQ",
+            "type": "single",
+            "dataCapture": "DESIGNATION",
+            "number": 2,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Freshman",
+                    "answerId": "Cy56yNoP1SeI"
+                },
+                {
+                    "number": 1,
+                    "answer": "Sophomore",
+                    "answerId": "ZHpeNF2qSKuT"
+                },
+                {
+                    "number": 2,
+                    "answer": "Junior",
+                    "answerId": "uegJeAKkgN6X"
+                },
+                {
+                    "number": 3,
+                    "answer": "Senior",
+                    "answerId": "LXcdWaf6eRom"
+                },
+                {
+                    "number": 4,
+                    "answer": "Graduate Level",
+                    "answerId": "LaBilnZqtBlP"
+                },
+                {
+                    "number": 5,
+                    "answer": "Other",
+                    "answerId": "IrH7EFky6Wlg",
+                    "other": {
+                        "msg": "please specify"
+                    }
+                }
+            ],
+            "goesTo": "3RkTh825aRsT"
+        },
+        "3RkTh825aRsT": {
+            "question": "Is your major STEM? (Science, Technology, Engineering and Mathematics)",
+            "id": "3RkTh825aRsT",
+            "type": "single",
+            "number": 3,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Yes",
+                    "answerId": "ARkOogKhls8m"
+                },
+                {
+                    "number": 1,
+                    "answer": "No",
+                    "answerId": "lxlI88NrGIFq"
+                }
+            ],
+            "goesTo": "U25qKAuGMkZm"
+        },
+        "U25qKAuGMkZm": {
+            "question": "What's your current GPA?",
+            "id": "U25qKAuGMkZm",
+            "type": "single",
+            "number": 4,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "above 3.5",
+                    "answerId": "CcnuIc0qhMKF"
+                },
+                {
+                    "number": 1,
+                    "answer": "3-3.5",
+                    "answerId": "WG7jCVGksL7b"
+                },
+                {
+                    "number": 2,
+                    "answer": "below 3",
+                    "answerId": "4NkkGXhXXhB5"
+                }
+            ],
+            "goesTo": "BNOQH2CfYkar"
+        },
+        "BNOQH2CfYkar": {
+            "question": "###NAME, what is your email?",
+            "id": "BNOQH2CfYkar",
+            "type": "open",
+            "dataCapture": "EMAIL",
+            "dataUse": "NAME",
+            "error": {
+                "test": "string",
+                "msg": "your input is not correct"
+            },
+            "number": 5,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "",
+                    "answerId": "x7biuF0npcY3"
+                }
+            ],
+            "goesTo": "Kb6TTYeDpTpH"
+        },
+        "Kb6TTYeDpTpH": {
+            "question": "Which best describes your level of interest in Machine Learning?",
+            "id": "Kb6TTYeDpTpH",
+            "type": "single",
+            "number": 6,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Long term career goal",
+                    "answerId": "kadbCNHKSSjg"
+                },
+                {
+                    "number": 1,
+                    "answer": "Personal interest",
+                    "answerId": "EW1vZthJsoDc"
+                },
+                {
+                    "number": 2,
+                    "answer": "Hobby",
+                    "answerId": "COEWW87I19ee"
+                },
+                {
+                    "number": 3,
+                    "answer": "I don't know",
+                    "answerId": "f7igtkZXJAyj"
+                }
+            ],
+            "goesTo": "vQkpEkv9nvE1"
+        },
+        "vQkpEkv9nvE1": {
+            "question": "Can you describe your level of exposure to Machine Learning",
+            "id": "vQkpEkv9nvE1",
+            "type": "single",
+            "number": 7,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Exploratory",
+                    "answerId": "gBpsH0kc0I1i"
+                },
+                {
+                    "number": 1,
+                    "answer": "Observer",
+                    "answerId": "1dXm2r7THrI2"
+                },
+                {
+                    "number": 2,
+                    "answer": "Enthusiast",
+                    "answerId": "ryQuEeR7ArT7"
+                },
+                {
+                    "number": 3,
+                    "answer": "Passionate",
+                    "answerId": "kWOQa3P6G1Te"
+                },
+                {
+                    "number": 4,
+                    "answer": "I don't know",
+                    "answerId": "6gurjoqd3PSx"
+                }
+            ],
+            "goesTo": "",
+            "goesToPrompt": "achievements"
+        },
+        "QrH3MPbcM4jJ": {
+            "question": "How many online ML certifications have you been awarded?",
+            "id": "QrH3MPbcM4jJ",
+            "type": "single",
+            "number": 9,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "None",
+                    "answerId": "NkJ8UgdPqcEX"
+                },
+                {
+                    "number": 1,
+                    "answer": "1-3",
+                    "answerId": "K2E9gcCa5oxE"
+                },
+                {
+                    "number": 2,
+                    "answer": "4-6",
+                    "answerId": "5FsCPeqIGCZf"
+                },
+                {
+                    "number": 3,
+                    "answer": "7-9",
+                    "answerId": "ak9LpRqfso5w"
+                },
+                {
+                    "number": 4,
+                    "answer": "above 9",
+                    "answerId": "4WG1Sfct4xEy"
+                }
+            ],
+            "goesTo": "39bwIB4SSouJ"
+        },
+        "39bwIB4SSouJ": {
+            "question": "Have you been a part of any ML Internships at organizations?",
+            "id": "39bwIB4SSouJ",
+            "type": "single",
+            "number": 10,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Yes",
+                    "answerId": "NRtZ3affwF6h"
+                },
+                {
+                    "number": 1,
+                    "answer": "No",
+                    "answerId": "QCfN5HS1Dv1Z"
+                }
+            ],
+            "goesTo": "YVQI4xHytSjT"
+        },
+        "YVQI4xHytSjT": {
+            "question": "Do you plan to enter the workforce as a Data Scientist, ML engineer, or Data Analyst in the future?",
+            "id": "YVQI4xHytSjT",
+            "type": "multiple",
+            "number": 11,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Data Scientist",
+                    "answerId": "WuwI8FpqYX3G"
+                },
+                {
+                    "number": 1,
+                    "answer": "ML Engineer",
+                    "answerId": "JLTSAVMpHTbb"
+                },
+                {
+                    "number": 2,
+                    "answer": "Data Analyst",
+                    "answerId": "YJmAjpiXES11"
+                },
+                {
+                    "number": 3,
+                    "answer": "other",
+                    "answerId": "ZC7lNCBhIPY9",
+                    "other": {
+                        "msg": "please specify"
+                    }
+                }
+            ],
+            "goesTo": "vvL1R3G3rcP4"
+        },
+        "vvL1R3G3rcP4": {
+            "question": "What data types do you prefer to work with on your current projects?",
+            "id": "vvL1R3G3rcP4",
+            "type": "multiple",
+            "number": 12,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Text",
+                    "answerId": "ZFaAY7qqXCSY"
+                },
+                {
+                    "number": 1,
+                    "answer": "Numerical",
+                    "answerId": "HKfhZPuSrnxs"
+                },
+                {
+                    "number": 2,
+                    "answer": "Geospatial",
+                    "answerId": "k2UBTiG53WU8"
+                },
+                {
+                    "number": 3,
+                    "answer": "Images",
+                    "answerId": "dLO0Y7bTsJdS"
+                },
+                {
+                    "number": 4,
+                    "answer": "Audio",
+                    "answerId": "IfAJ6IHXToss"
+                },
+                {
+                    "number": 5,
+                    "answer": "Video",
+                    "answerId": "wrtdo291qko0"
+                },
+                {
+                    "number": 6,
+                    "answer": "Other",
+                    "answerId": "GV1IMO9wuh7a",
+                    "other": {
+                        "msg": "please specify"
+                    }
+                },
+                {
+                    "number": 7,
+                    "answer": "I do not know",
+                    "answerId": "i9EP7H7VhQyj"
+                }
+            ],
+            "goesTo": "sTfUTlgMxTUO"
+        },
+        "sTfUTlgMxTUO": {
+            "question": "What is the largest dataset that you have interacted with in terms of features?",
+            "id": "sTfUTlgMxTUO",
+            "type": "single",
+            "number": 13,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Under 50",
+                    "answerId": "TPk0GQvrWqDM"
+                },
+                {
+                    "number": 1,
+                    "answer": "100-500",
+                    "answerId": "PbfU96cFgQh2"
+                },
+                {
+                    "number": 2,
+                    "answer": "500-1K",
+                    "answerId": "Ts6sbQIKoWOH"
+                },
+                {
+                    "number": 3,
+                    "answer": "1K-5K",
+                    "answerId": "GijjjVLy8PjD"
+                },
+                {
+                    "number": 4,
+                    "answer": "over 5K",
+                    "answerId": "cdMeQiijq41H"
+                },
+                {
+                    "number": 5,
+                    "answer": "I don't know"
+                }
+            ],
+            "goesTo": "vNylmAIrBZsX"
+        },
+        "vNylmAIrBZsX": {
+            "question": "Which IDEs have you worked with to prepare data?",
+            "id": "vNylmAIrBZsX",
+            "type": "multiple",
+            "number": 14,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Jupyter",
+                    "answerId": "hY1A9rJVewQs"
+                },
+                {
+                    "number": 1,
+                    "answer": "SageMaker",
+                    "answerId": "9S2CaG45aXtU"
+                },
+                {
+                    "number": 2,
+                    "answer": "Google Colab",
+                    "answerId": "DG7p6T1rh7TF"
+                },
+                {
+                    "number": 3,
+                    "answer": "Spyder",
+                    "answerId": "NCt9yhn5gfiH"
+                },
+                {
+                    "number": 4,
+                    "answer": "Pycharm",
+                    "answerId": "tqcw2DUEndk2"
+                },
+                {
+                    "number": 5,
+                    "answer": "Other",
+                    "other": {
+                        "msg": "please specify"
+                    }
+                }
+            ],
+            "goesTo": "PdpM2Xe0JX6S"
+        },
+        "PdpM2Xe0JX6S": {
+            "question": "Which of the following best describes your aptitude for accessing data?",
+            "id": "PdpM2Xe0JX6S",
+            "type": "single",
+            "number": 15,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "There is a standardized protocol for accessing data across the organization",
+                    "answerId": "xRLh3DIAsReI"
+                },
+                {
+                    "number": 1,
+                    "answer": "Each department/division constructs its own protocol for accessing data",
+                    "answerId": "YIQ5VieeMJTk"
+                },
+                {
+                    "number": 2,
+                    "answer": "Individuals set up their own protocols for accessing data",
+                    "answerId": "mimnsn9M6EZO"
+                },
+                {
+                    "number": 3,
+                    "answer": "I do not know",
+                    "answerId": "KRNBqW7yE9v6"
+                }
+            ],
+            "goesTo": "KPs5Wh36sJtm"
+        },
+        "KPs5Wh36sJtm": {
+            "question": "Regarding Data Preparation, I have the ability to:  ",
+            "id": "KPs5Wh36sJtm",
+            "type": "multiple",
+            "number": 16,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Integrate internal data between different systems/departments",
+                    "answerId": "ZOyxVFmNvFjf"
+                },
+                {
+                    "number": 1,
+                    "answer": "Host/maintain a live data feed",
+                    "answerId": "cKg3Lre9AjRA"
+                },
+                {
+                    "number": 2,
+                    "answer": "Backup and retrieve historical data",
+                    "answerId": "gsCO8pnOnL3f"
+                },
+                {
+                    "number": 3,
+                    "answer": "Ingest or introduce data from external sources",
+                    "answerId": "CXXSVFiYOyJ6"
+                },
+                {
+                    "number": 4,
+                    "answer": "Query live data",
+                    "answerId": "KuOlAdMne7js"
+                },
+                {
+                    "number": 5,
+                    "answer": "None of the above",
+                    "answerId": "BKQHZE41OQ1x",
+                    "noneOfTheAbove": true
+                },
+                {
+                    "number": 6,
+                    "answer": "I do not know",
+                    "answerId": "jHj2ri8ahdQ2"
+                }
+            ],
+            "goesTo": "WUbPK1cUV163"
+        },
+        "WUbPK1cUV163": {
+            "question": "Have you been part of identifying the problem statement and establish a baseline?",
+            "id": "WUbPK1cUV163",
+            "type": "single",
+            "number": 17,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Yes' ",
+                    "answerId": "Xpc9L1qjtcbv"
+                },
+                {
+                    "number": 1,
+                    "answer": "No",
+                    "answerId": "Wc9xvmDmWcCC"
+                }
+            ],
+            "goesTo": "BxOl8NHPgUiS"
+        },
+        "BxOl8NHPgUiS": {
+            "question": "List out the Python libraries/architecture you have had exposure to, for Data Analysis, maching learning and deep learning?",
+            "id": "BxOl8NHPgUiS",
+            "type": "multiple",
+            "number": 18,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "SciPy",
+                    "answerId": "YqLAruQFeRB7"
+                },
+                {
+                    "number": 1,
+                    "answer": "Pandas",
+                    "answerId": "GWIBlvFLnRN6"
+                },
+                {
+                    "number": 2,
+                    "answer": "Numpy",
+                    "answerId": "O0ELUOAuYXv7"
+                },
+                {
+                    "number": 3,
+                    "answer": "Scikit learn",
+                    "answerId": "hqpUO8w0N7fr"
+                },
+                {
+                    "number": 4,
+                    "answer": "Tensorflow",
+                    "answerId": "ob4Qc9avLkWT"
+                },
+                {
+                    "number": 5,
+                    "answer": "Pytorch",
+                    "answerId": "dbwKPDmyJUVw"
+                },
+                {
+                    "number": 6,
+                    "answer": "Transformer",
+                    "answerId": "RQr2Ospf16yE"
+                },
+                {
+                    "number": 7,
+                    "answer": "OpenCV",
+                    "answerId": "b2GlY6L9Qkt3"
+                },
+                {
+                    "number": 8,
+                    "answer": "other",
+                    "answerId": "fGy4LSeNuAhl",
+                    "other": {
+                        "msg": "please specify"
+                    }
+                },
+                {
+                    "number": 9,
+                    "answer": "none of the above",
+                    "answerId": "NtmasmKIfCqD",
+                    "noneOfTheAbove": true
+                }
+            ],
+            "goesTo": "YjHwt0UcsaLl"
+        },
+        "YjHwt0UcsaLl": {
+            "question": "In your coursework, have you developed any models for research through your academic institution or lab work?  If so, how many?",
+            "id": "YjHwt0UcsaLl",
+            "type": "single",
+            "number": 19,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "0",
+                    "answerId": "L4E8093cawNI"
+                },
+                {
+                    "number": 1,
+                    "answer": "1-5",
+                    "answerId": "AAngk6A79h96"
+                },
+                {
+                    "number": 2,
+                    "answer": "6-10",
+                    "answerId": "5K3Dyfg8wZ8e"
+                },
+                {
+                    "number": 3,
+                    "answer": "11-15",
+                    "answerId": "IWb9GWpcsd63"
+                },
+                {
+                    "number": 4,
+                    "answer": "16-20",
+                    "answerId": "c8YmrjNBjBYq"
+                },
+                {
+                    "number": 5,
+                    "answer": "21+",
+                    "answerId": "EKhGTPTI0T4X"
+                }
+            ],
+            "goesTo": "GL9kmOkWeSlJ"
+        },
+        "GL9kmOkWeSlJ": {
+            "question": "Regarding Maching Learning Engineering, have you been exposed to any of these?",
+            "id": "GL9kmOkWeSlJ",
+            "type": "multiple",
+            "number": 20,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Flask",
+                    "answerId": "NkCTdSxHWMYr"
+                },
+                {
+                    "number": 1,
+                    "answer": "Flink",
+                    "answerId": "Fw4KnKVa8TJG"
+                },
+                {
+                    "number": 2,
+                    "answer": "Snowflake",
+                    "answerId": "DNLuGHwlkax2"
+                },
+                {
+                    "number": 3,
+                    "answer": "AWS SageMaker",
+                    "answerId": "bWMtBpLeRftj"
+                },
+                {
+                    "number": 4,
+                    "answer": "Kubernetes",
+                    "answerId": "mYAHgCPMoIlW"
+                },
+                {
+                    "number": 5,
+                    "answer": "Spark",
+                    "answerId": "SrgXVFZkeSk6"
+                },
+                {
+                    "number": 6,
+                    "answer": "Docker",
+                    "answerId": "ElElaGXb8MZ4"
+                }
+            ],
+            "goesTo": "EYVV15tfxNyl"
+        },
+        "EYVV15tfxNyl": {
+            "question": "What data visualization tools have you been exposed to?",
+            "id": "EYVV15tfxNyl",
+            "type": "multiple",
+            "number": 21,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Tableau",
+                    "answerId": "gqSqKEKRBmEJ"
+                },
+                {
+                    "number": 1,
+                    "answer": "Plotly",
+                    "answerId": "JeWefJTBJyTy"
+                },
+                {
+                    "number": 2,
+                    "answer": "Matplotlib",
+                    "answerId": "Bvnwi7Z5h8Fb"
+                },
+                {
+                    "number": 3,
+                    "answer": "Seaborn",
+                    "answerId": "1yV47OGCfZ8C"
+                },
+                {
+                    "number": 4,
+                    "answer": "Other",
+                    "answerId": "P8BEn7HqFqeF",
+                    "other": {
+                        "msg": "please specify"
+                    }
+                }
+            ],
+            "goesTo": "U4dGGi0VypQ4"
+        },
+        "U4dGGi0VypQ4": {
+            "question": "What type of accuracy metrics were your machine learning models exposed to?",
+            "id": "U4dGGi0VypQ4",
+            "type": "multiple",
+            "number": 22,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "RMSE",
+                    "answerId": "o5KVKsdc2kW6"
+                },
+                {
+                    "number": 1,
+                    "answer": "R2",
+                    "answerId": "VB7UgymEHh1N"
+                },
+                {
+                    "number": 2,
+                    "answer": "Accuracy",
+                    "answerId": "vH8dPf0fApEj"
+                },
+                {
+                    "number": 3,
+                    "answer": "F1",
+                    "answerId": "hy5TJiCsjwSu"
+                },
+                {
+                    "number": 4,
+                    "answer": "Precision",
+                    "answerId": "LbR2NUIQo3Jy"
+                },
+                {
+                    "number": 5,
+                    "answer": "Recall",
+                    "answerId": "FiKJxRQXKDro"
+                },
+                {
+                    "number": 6,
+                    "answer": "ROC_AUC score",
+                    "answerId": "6VfZSLt55THZ"
+                },
+                {
+                    "number": 7,
+                    "answer": "NDCG",
+                    "answerId": "s3p209xROFB2"
+                },
+                {
+                    "number": 8,
+                    "answer": "Other",
+                    "answerId": "R1QAJBfvI9PA",
+                    "other": {
+                        "msg": "please specify"
+                    }
+                },
+                {
+                    "number": 9,
+                    "answer": "I do not know",
+                    "answerId": "0stVsmt86tIp"
+                }
+            ],
+            "goesTo": "oQfEQV1rp8ju"
+        },
+        "oQfEQV1rp8ju": {
+            "question": "What MLOps coursework would you like to focus on?",
+            "id": "oQfEQV1rp8ju",
+            "type": "multiple",
+            "number": 23,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "API Integration and Documentation",
+                    "answerId": "prWQKBOKtdmF"
+                },
+                {
+                    "number": 1,
+                    "answer": "Model Function Testing",
+                    "answerId": "UIv0jHgZRbSm"
+                },
+                {
+                    "number": 2,
+                    "answer": "Establishing Secure Data Pipelines",
+                    "answerId": "QDMCKD3Ll36L"
+                },
+                {
+                    "number": 3,
+                    "answer": "Identifying KPIs",
+                    "answerId": "BX9Biht6u2CV"
+                },
+                {
+                    "number": 4,
+                    "answer": "Real time inference",
+                    "answerId": "LdU1XUD64EfP"
+                },
+                {
+                    "number": 5,
+                    "answer": "Latency Reduction",
+                    "answerId": "7PoSD4l53aCJ"
+                }
+            ],
+            "goesTo": "UxgRaTwZxloO"
+        },
+        "UxgRaTwZxloO": {
+            "question": "On average, how long does it take for you to deploy a model once tested and trained?",
+            "id": "UxgRaTwZxloO",
+            "type": "single",
+            "number": 24,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Less than 1 week",
+                    "answerId": "ZnO21M84QnPw"
+                },
+                {
+                    "number": 1,
+                    "answer": "1-3 weeks",
+                    "answerId": "P1CyIL0AZVLe"
+                },
+                {
+                    "number": 2,
+                    "answer": "4-8 weeks",
+                    "answerId": "31NtU4a7RS3G"
+                },
+                {
+                    "number": 3,
+                    "answer": "More than 8 weeks",
+                    "answerId": "4ip78Msfr5Ih"
+                },
+                {
+                    "number": 4,
+                    "answer": "I do not know",
+                    "answerId": "gPyumRXpibhv"
+                }
+            ],
+            "goesTo": "55DFJywhn65X"
+        },
+        "55DFJywhn65X": {
+            "question": "Which particular ML lifecycle appeals to you most?",
+            "id": "55DFJywhn65X",
+            "type": "single",
+            "number": 25,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Data Preparation",
+                    "answerId": "Zv6xujqk7dHx"
+                },
+                {
+                    "number": 1,
+                    "answer": "Model Development and Testing",
+                    "answerId": "xPnCxby1kQse"
+                },
+                {
+                    "number": 2,
+                    "answer": "Model Deployment",
+                    "answerId": "VP0UTJuVrHK8"
+                },
+                {
+                    "number": 3,
+                    "answer": "Model Monitoring",
+                    "answerId": "9UPl7j9m36Zf"
+                },
+                {
+                    "number": 4,
+                    "answer": "or Assessing Business Value using ML",
+                    "answerId": "lm2GhXMJmPY5"
+                }
+            ],
+            "goesTo": "lGP6FRea7AWZ"
+        },
+        "lGP6FRea7AWZ": {
+            "question": "Does your current academic institution offer specific model monitoring coursework?",
+            "id": "lGP6FRea7AWZ",
+            "type": "single",
+            "number": 26,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Yes",
+                    "answerId": "Dcw05XWlmFmw"
+                },
+                {
+                    "number": 1,
+                    "answer": "Not currently",
+                    "answerId": "TrVW9OvJwTsY"
+                }
+            ],
+            "goesTo": "uHGKjnUglGfO"
+        },
+        "uHGKjnUglGfO": {
+            "question": "What types of ML Applications are you most interested in?",
+            "id": "uHGKjnUglGfO",
+            "type": "multiple",
+            "number": 27,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Predictive Analysis",
+                    "answerId": "gCGRs7qw449c"
+                },
+                {
+                    "number": 1,
+                    "answer": "Anamoly Detection",
+                    "answerId": "DTbW5x4JmAyn"
+                },
+                {
+                    "number": 2,
+                    "answer": "NLP",
+                    "answerId": "rJ7iwPwimaYC"
+                },
+                {
+                    "number": 3,
+                    "answer": "Computer Vision",
+                    "answerId": "sP8IFgjr7IiE"
+                },
+                {
+                    "number": 4,
+                    "answer": "Deep Learning",
+                    "answerId": "tap4BrlJnXcf"
+                },
+                {
+                    "number": 5,
+                    "answer": "Robotics",
+                    "answerId": "K0WcYB6rn0qH"
+                },
+                {
+                    "number": 6,
+                    "answer": "Other",
+                    "answerId": "bq7dy6MpeUJq",
+                    "other": {
+                        "msg": "please specify"
+                    }
+                }
+            ],
+            "goesTo": "JD8S0C4FBbmx"
+        },
+        "JD8S0C4FBbmx": {
+            "question": "In your opinion, which area of the ML Lifecycle offers the greatest value for ML?",
+            "id": "JD8S0C4FBbmx",
+            "type": "single",
+            "number": 28,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Data Preparation",
+                    "answerId": "M4knO3NsITBR"
+                },
+                {
+                    "number": 1,
+                    "answer": "Model Development",
+                    "answerId": "iuddbLnQnwqD"
+                },
+                {
+                    "number": 2,
+                    "answer": "Model Deployment",
+                    "answerId": "O8nNd0woGYB1"
+                },
+                {
+                    "number": 3,
+                    "answer": "Model Monitoring",
+                    "answerId": "lXg3sIGJ5DAo"
+                },
+                {
+                    "number": 4,
+                    "answer": "or Business Value",
+                    "answerId": "wKNK6aLPTdB9"
+                },
+                {
+                    "number": 5,
+                    "answer": "I don't know",
+                    "answerId": "oEuV9vNPxqEr"
+                }
+            ],
+            "goesTo": "ZINnWmohLAWU"
+        },
+        "ZINnWmohLAWU": {
+            "question": "Do you have ML related career goal? If yes then what is it?",
+            "id": "ZINnWmohLAWU",
+            "type": "multiple",
+            "number": 29,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Machine learning engineer",
+                    "answerId": "h4Iq0ADrELlC"
+                },
+                {
+                    "number": 1,
+                    "answer": "MLOps and Deployment",
+                    "answerId": "2FWv9nIysg0q"
+                },
+                {
+                    "number": 2,
+                    "answer": "Computer vision / NLP / computational linguistics specialists",
+                    "answerId": "XrQRZs8kTOfW"
+                },
+                {
+                    "number": 3,
+                    "answer": "Data Scientist",
+                    "answerId": "bRcE8X34g0LW"
+                },
+                {
+                    "number": 4,
+                    "answer": "I don't know",
+                    "answerId": "yRNEhC9ZSW9X"
+                }
+            ],
+            "goesTo": "PQ0KD0TObc6Q"
+        },
+        "PQ0KD0TObc6Q": {
+            "question": "What have you learned/are you planning to learn for a career in machine learning?",
+            "id": "PQ0KD0TObc6Q",
+            "type": "multiple",
+            "number": 30,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Programming in Python/C++/Java and corresponding ML libraries/frameworks",
+                    "answerId": "tWkxy0rm0hi9"
+                },
+                {
+                    "number": 1,
+                    "answer": "Statistical Analysis with R",
+                    "answerId": "rAp4l3vQc48K"
+                },
+                {
+                    "number": 2,
+                    "answer": "Data wrangling with Pandas and Numpy",
+                    "answerId": "UxTjMg5KaSWP"
+                },
+                {
+                    "number": 3,
+                    "answer": "Deep learning",
+                    "answerId": "H13JcUhqI7Yi"
+                },
+                {
+                    "number": 4,
+                    "answer": "neural network principles and engineering frameworks with Tensorflow and PyTorch",
+                    "answerId": "yjnTfVNShBOw"
+                },
+                {
+                    "number": 5,
+                    "answer": "Deployment tools like AWS SageMaker",
+                    "answerId": "bx4u26ThFtso"
+                },
+                {
+                    "number": 6,
+                    "answer": "I don't know",
+                    "answerId": "Pfrs0bsWJD6O"
+                }
+            ],
+            "goesTo": "iofeAB4hyRhC"
+        },
+        "iofeAB4hyRhC": {
+            "question": "Has your academic institution considered doing these following things for your career development?",
+            "id": "iofeAB4hyRhC",
+            "type": "multiple",
+            "number": 31,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Resume building",
+                    "answerId": "qHDr9LWuNA7M"
+                },
+                {
+                    "number": 1,
+                    "answer": "Practice your learning by working on real world projects",
+                    "answerId": "wP6a5vmbROFc"
+                },
+                {
+                    "number": 2,
+                    "answer": "Compete on some platforms like Kaggle",
+                    "answerId": "NWfnSaWM0bjw"
+                },
+                {
+                    "number": 3,
+                    "answer": "Interview preparation",
+                    "answerId": "btQAoiYdjXJB"
+                },
+                {
+                    "number": 4,
+                    "answer": "None of Above",
+                    "answerId": "bngQImdyoIBV"
+                }
+            ],
+            "goesTo": "XtEfERdmXBrA"
+        },
+        "XtEfERdmXBrA": {
+            "question": "What leadership styles do you most identify with?",
+            "id": "XtEfERdmXBrA",
+            "type": "multiple",
+            "number": 32,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Transactional",
+                    "answerId": "u3kQ3KrHbPDs"
+                },
+                {
+                    "number": 1,
+                    "answer": "Democratic",
+                    "answerId": "x7JIELhL9jSD"
+                },
+                {
+                    "number": 2,
+                    "answer": "Transformational",
+                    "answerId": "ZKJhVFGXTaWv"
+                },
+                {
+                    "number": 3,
+                    "answer": "Servant",
+                    "answerId": "5dSB9ECVAv52"
+                },
+                {
+                    "number": 4,
+                    "answer": "Charismatic",
+                    "answerId": "u94Pk9RiS8qe"
+                }
+            ],
+            "goesTo": "",
+            "goesToPrompt": "assessment"
+        },
+        "BxCnIp3SVvWq": {
+            "question": "How do we perform Bayesian classification when some features are missing?",
+            "id": "BxCnIp3SVvWq",
+            "type": "single",
+            "number": 34,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "We assume the missing values as the mean of all values.",
+                    "answerId": "5erluRNAU7Qd"
+                },
+                {
+                    "number": 1,
+                    "answer": "We ignore the missing features.",
+                    "answerId": "gpMbvfYBKX8U"
+                },
+                {
+                    "number": 2,
+                    "answer": "We integrate the posteriors probabilities over the missing features.",
+                    "answerId": "mMtLT3aYvlx7"
+                },
+                {
+                    "number": 3,
+                    "answer": "Drop the features completely if most of the entries are missing.",
+                    "answerId": "LwY5l8JkJCh6"
+                }
+            ],
+            "goesTo": "JFjYKyW80pal"
+        },
+        "JFjYKyW80pal": {
+            "question": "The robotic arm will be able to paint every corner in the automotive parts while minimizing the quantity of paint wasted in the process. Which learning technique is used in this problem?",
+            "id": "JFjYKyW80pal",
+            "type": "single",
+            "number": 35,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Supervised Learning",
+                    "answerId": "AnxOOpRAKqBc"
+                },
+                {
+                    "number": 1,
+                    "answer": "Unsupervised Learning",
+                    "answerId": "Nt5n4TUmRoto"
+                },
+                {
+                    "number": 2,
+                    "answer": "Both Supervised and Unsupervised Learning",
+                    "answerId": "ju0qYqQFmjXe"
+                },
+                {
+                    "number": 3,
+                    "answer": "Reinforcement Learning",
+                    "answerId": "apD5tjCXr2E3"
+                }
+            ],
+            "goesTo": "IIYw2nJ3HkXx"
+        },
+        "IIYw2nJ3HkXx": {
+            "question": "What kind of distance metric(s) are suitable for categorical variables to find the closest neighbors?",
+            "id": "IIYw2nJ3HkXx",
+            "type": "multiple",
+            "number": 36,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Euclidean distance",
+                    "answerId": "wGQm480inr9o"
+                },
+                {
+                    "number": 1,
+                    "answer": "Manhattan distance",
+                    "answerId": "AwinHtlnxGlX"
+                },
+                {
+                    "number": 2,
+                    "answer": "Minkowski distance",
+                    "answerId": "bD0oAE8CQi0T"
+                },
+                {
+                    "number": 3,
+                    "answer": "Hamming Distance",
+                    "answerId": "DUGAfNCFWaKu"
+                }
+            ],
+            "goesTo": "mJ54c4BIljBI"
+        },
+        "mJ54c4BIljBI": {
+            "question": "Which of the following is FALSE about Correlation and Covariance?",
+            "id": "mJ54c4BIljBI",
+            "type": "single",
+            "number": 37,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "A zero correlation does not necessarily imply independence between variables",
+                    "answerId": "WZlVF7OxQVqd"
+                },
+                {
+                    "number": 1,
+                    "answer": "Correlation and covariance values are the same",
+                    "answerId": "1TgUERuhhofg"
+                },
+                {
+                    "number": 2,
+                    "answer": "The covariance and correlation are always the same sign",
+                    "answerId": "ceyi3e0b7fUi"
+                },
+                {
+                    "number": 3,
+                    "answer": "Correlation is the standardized version of Covariance",
+                    "answerId": "Latp0HyZAWKM"
+                }
+            ],
+            "goesTo": "g0XPtsTXsGIC"
+        },
+        "g0XPtsTXsGIC": {
+            "question": "Which of the following is FALSE about Deep Learning and Machine Learning algorithms?",
+            "id": "g0XPtsTXsGIC",
+            "type": "single",
+            "number": 38,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Deep Learning algorithms work efficiently on a high amount of data",
+                    "answerId": "V9kAJnb8ySa5"
+                },
+                {
+                    "number": 1,
+                    "answer": "Feature Extraction needs to be done manually in both ML and DL algorithms",
+                    "answerId": "1Q33ZZDe480t"
+                },
+                {
+                    "number": 2,
+                    "answer": "Deep Learning algorithms are best suited for unstructured data",
+                    "answerId": "C7js3UiGgcs4"
+                },
+                {
+                    "number": 3,
+                    "answer": "Deep Learning algorithms require high computational power",
+                    "answerId": "2CljIRiovKxx"
+                }
+            ],
+            "goesTo": "",
+            "goesToPrompt": "finishUp"
+        },
+        "QE3vKB2absKV": {
+            "question": "Do you think your Academic Institution puts enough emphasis on the business value of Machine Learning?",
+            "id": "QE3vKB2absKV",
+            "type": "single",
+            "number": 40,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Yes",
+                    "answerId": "GQQtobkNEn7M"
+                },
+                {
+                    "number": 1,
+                    "answer": "No",
+                    "answerId": "GStj0YMaXfb6"
+                },
+                {
+                    "number": 2,
+                    "answer": "I do not know",
+                    "answerId": "OQ082gXyXS7R"
+                }
+            ],
+            "goesTo": "jfqxgwF2Figm"
+        },
+        "jfqxgwF2Figm": {
+            "question": "If there was a course on business value using ML, would that prompt a different career trajactory?",
+            "id": "jfqxgwF2Figm",
+            "type": "single",
+            "number": 41,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Yes",
+                    "answerId": "Vd4kMaFlGFvk"
+                },
+                {
+                    "number": 1,
+                    "answer": "No",
+                    "answerId": "nZF8Qy9cuqEG"
+                },
+                {
+                    "number": 2,
+                    "answer": "I do not know",
+                    "answerId": "mnO3vxlHqq14"
+                }
+            ],
+            "goesTo": "6GxeMycoCHoG"
+        },
+        "6GxeMycoCHoG": {
+            "question": "How important is machine learning for your overall career path?",
+            "id": "6GxeMycoCHoG",
+            "type": "single",
+            "number": 42,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Not important at all",
+                    "answerId": "Go5sBmslUUAo"
+                },
+                {
+                    "number": 1,
+                    "answer": "Slightly important",
+                    "answerId": "0maXdGdUaiFX"
+                },
+                {
+                    "number": 2,
+                    "answer": "Somewhat important",
+                    "answerId": "P0eYQfFfV1N7"
+                },
+                {
+                    "number": 3,
+                    "answer": "Important",
+                    "answerId": "uACKqcJj5DpM"
+                },
+                {
+                    "number": 4,
+                    "answer": "Very important",
+                    "answerId": "WdMjmEgs0bDN"
+                }
+            ],
+            "goesTo": "QxYMQmeNVCKh"
+        },
+        "QxYMQmeNVCKh": {
+            "question": "Please identify any experience you've had aligning business objectives with machine learning models.",
+            "id": "QxYMQmeNVCKh",
+            "type": "multiple",
+            "number": 43,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "The data we need is not available",
+                    "answerId": "fWwF1lhp2iO0"
+                },
+                {
+                    "number": 1,
+                    "answer": "We have no models to align our objectives with",
+                    "answerId": "QeYsKLZKtkrV"
+                },
+                {
+                    "number": 2,
+                    "answer": "We do not have the staff to align machine learning models with business objectives",
+                    "answerId": "FKQYE1mguWH5"
+                },
+                {
+                    "number": 3,
+                    "answer": "We do not have the resources to align machine learning models with business objectives",
+                    "answerId": "cwFAxID9cudl"
+                },
+                {
+                    "number": 4,
+                    "answer": "We do not have the staff to align machine learning models with business objectives",
+                    "answerId": "RhLJEHpMfIgK"
+                },
+                {
+                    "number": 5,
+                    "answer": "We do not have the resources to align machine learning models with business objectives",
+                    "answerId": "CB0DhTT0x9JK"
+                },
+                {
+                    "number": 6,
+                    "answer": "We have identified case studies and research to generate sound models’",
+                    "answerId": "kWoMhqVtTSVJ"
+                },
+                {
+                    "number": 7,
+                    "answer": "Other",
+                    "answerId": "y2feVxnBIes5",
+                    "other": {
+                        "msg": "please specify"
+                    }
+                }
+            ],
+            "goesTo": "pZoxfwQcWFC9"
+        },
+        "pZoxfwQcWFC9": {
+            "question": "What has been the most challenging aspect(s) of using machine learning models?",
+            "id": "pZoxfwQcWFC9",
+            "type": "multiple",
+            "number": 44,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Not enough data",
+                    "answerId": "aDXSl8RsAQm6"
+                },
+                {
+                    "number": 1,
+                    "answer": "Low data quality",
+                    "answerId": "12k8H4lySEU4"
+                },
+                {
+                    "number": 2,
+                    "answer": "Data centralization",
+                    "answerId": "UT52yVvGLMyu"
+                },
+                {
+                    "number": 3,
+                    "answer": "Lack of technical talent",
+                    "answerId": "DYhS0jUNBJ1J"
+                },
+                {
+                    "number": 4,
+                    "answer": "Limited budget",
+                    "answerId": "xwQBpdJUqv3I"
+                },
+                {
+                    "number": 5,
+                    "answer": "Deployment of models or results",
+                    "answerId": "Ga1La39A34Hj"
+                },
+                {
+                    "number": 6,
+                    "answer": "Developing a strategy for use",
+                    "answerId": "kiR0mLmMshqN"
+                },
+                {
+                    "number": 7,
+                    "answer": "Labeling data",
+                    "answerId": "3IK82GX1UNV2"
+                },
+                {
+                    "number": 8,
+                    "answer": "I do not know",
+                    "answerId": "n6gNjLWJxnJJ"
+                }
+            ],
+            "goesTo": "JaKyEiVBYNGF"
+        },
+        "JaKyEiVBYNGF": {
+            "question": "What has been the most rewarding aspect(s) of using machine learning models?",
+            "id": "JaKyEiVBYNGF",
+            "type": "multiple",
+            "number": 45,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Enhanced efficiency",
+                    "answerId": "RMIStm3aFuKg"
+                },
+                {
+                    "number": 1,
+                    "answer": "Improved operations",
+                    "answerId": "hHpSnXOEBVeo"
+                },
+                {
+                    "number": 2,
+                    "answer": "Improved decision-making abilities",
+                    "answerId": "1p8ZavN8Ov8j"
+                },
+                {
+                    "number": 3,
+                    "answer": "New streams of revenue",
+                    "answerId": "EFyErGQZaP86"
+                },
+                {
+                    "number": 4,
+                    "answer": "Improved revenue streams",
+                    "answerId": "FgXOBm4AO0QU"
+                },
+                {
+                    "number": 5,
+                    "answer": "I do not know",
+                    "answerId": "96ZkhFDm6DUs"
+                }
+            ],
+            "goesTo": "C7XucjtCtMEQ"
+        },
+        "C7XucjtCtMEQ": {
+            "question": "How did you solve the challenge(s) you identified?",
+            "id": "C7XucjtCtMEQ",
+            "type": "multiple",
+            "number": 46,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Developed an internal solution",
+                    "answerId": "GsPueu2RyD11"
+                },
+                {
+                    "number": 1,
+                    "answer": "Outsourced the solution",
+                    "answerId": "JQ5n1yAxSjnj"
+                },
+                {
+                    "number": 2,
+                    "answer": "It has not been solved yet",
+                    "answerId": "vdoBLKWvDTB8"
+                }
+            ],
+            "goesTo": "AnRWtI3LEqbF"
+        },
+        "AnRWtI3LEqbF": {
+            "question": "###NAME, would you be willing to take our survey again in 4 months?",
+            "id": "AnRWtI3LEqbF",
+            "type": "single",
+            "dataUse": "NAME",
+            "number": 47,
+            "answers": [
+                {
+                    "number": 0,
+                    "answer": "Yes",
+                    "answerId": "Hja08wTQBYEP"
+                },
+                {
+                    "number": 1,
+                    "answer": "No",
+                    "answerId": "nww9GScQL2Qd"
+                }
+            ],
+            "goesToPrompt": "submit"
+        }
+    },
+    "answers": {}
+}
